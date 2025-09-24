@@ -27,7 +27,7 @@
 ## Deployment
 
 Hosted on Netlify:  
-hackers-united.netlify.app
+https://hackers-united.netlify.app/
 
 ## License
 
