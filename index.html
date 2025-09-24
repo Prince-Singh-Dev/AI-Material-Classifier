@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hackers United</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="app-container">
+    <h1 class="title">♻️ AI Material Classifier</h1>
+
+    <!-- Camera wrapper -->
+    <div class="camera-wrapper glass" id="camera-container">
+      <div class="scanner-overlay"></div>
+      <canvas id="camera-effects"></canvas>
+    </div>
+
+    <!-- Status bars -->
+    <div class="status-bars">
+      <div class="bar">
+        <span>Organic</span>
+        <div class="progress"><div id="organic-bar"></div></div>
+        <span id="organic-label">0%</span>
+      </div>
+      <div class="bar">
+        <span>Inorganic</span>
+        <div class="progress"><div id="inorganic-bar"></div></div>
+        <span id="inorganic-label">0%</span>
+      </div>
+      <div class="bar">
+        <span>Hazardous</span>
+        <div class="progress"><div id="hazardous-bar"></div></div>
+        <span id="hazardous-label">0%</span>
+      </div>
+    </div>
+
+    <!-- Control buttons -->
+    <div class="controls">
+        <button id="startBtn">▶ Start</button>
+        <button id="stopBtn">⏹ Stop</button>
+        <button id="flipBtn">🔄 Flip Camera</button>
+        <button id="themeBtn">🌗 Toggle Theme</button>
+        <button id="saveBtn">💾 Save Snapshot</button>
+        <button id="filterBtn">🎨 Toggle Filter</button>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 Hackers United - AI Material Classifier
+    </footer>
+
+  </div>
+</body>
+</html>

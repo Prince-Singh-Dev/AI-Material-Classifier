@@ -1,0 +1,185 @@
+/* Reset + font */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
+body { 
+  background: linear-gradient(135deg, #0a0f1f, #1c1c2a); 
+  color: #fff;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  overflow: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Particle canvas */
+#particles {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+/* App container */
+.app-container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Title */
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ff00ff;
+  animation: flicker 2s infinite alternate;
+}
+@keyframes flicker {
+  0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+  50% { text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff; }
+  100% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+}
+
+/* Camera wrapper */
+.camera-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin: 0 auto 2rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid rgba(0,255,255,0.5);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+  animation: neonGlow 3s infinite alternate;
+}
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+  50% { box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff; }
+  100% { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+}
+
+/* Scanner overlay */
+.scanner-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: repeating-linear-gradient(to bottom, rgba(0,255,255,0.15), rgba(0,255,255,0.05) 2px);
+  pointer-events: none;
+  animation: scan 2s linear infinite;
+}
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Status bars */
+.status-bars { margin-bottom: 2rem; }
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.progress {
+  flex: 1;
+  height: 12px;
+  margin: 0 10px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3);
+}
+.progress div {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+#organic-bar { background: linear-gradient(90deg, #00ff99, #00ffff); }
+#inorganic-bar { background: linear-gradient(90deg, #ffcc00, #ff8800); }
+#hazardous-bar { background: linear-gradient(90deg, #ff0044, #ff00ff); }
+
+/* Labels */
+.status-bars span {
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #ff00ff;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.controls button {
+  margin: 0.4rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #fff;
+  background: linear-gradient(135deg, #6a00ff, #00f0ff);
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #6a00ff;
+  transition: all 0.3s ease;
+}
+.controls button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+}
+
+/* Light mode */
+body.light {
+  background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+  color: #000;
+}
+body.light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+body.light .controls button {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  box-shadow: 0 0 15px #00c6ff;
+}
+body.light .status-bars span {
+  text-shadow: 0 0 5px #0072ff, 0 0 10px #00c6ff;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #00ffff;
+  text-shadow: 0 0 3px #00ffff, 0 0 5px #ff00ff;
+  margin-top: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.footer:hover {
+  opacity: 1;
+}
+@media (max-width: 480px) {
+  .footer { font-size: 0.7rem; }
+}
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .title { font-size: 1.8rem; }
+  .camera-wrapper { max-width: 90%; }
+  .status-bars span { font-size: 0.8rem; }
+  .controls button { font-size: 0.8rem; padding: 0.6rem 0.8rem; }
+}
+@media (max-width: 480px) {
+  .title { font-size: 1.5rem; }
+  .status-bars { margin-bottom: 1rem; }
+  .bar { margin: 8px 0; }
+  .controls button { font-size: 0.75rem; padding: 0.5rem 0.6rem; margin:0.3rem; }
+}
