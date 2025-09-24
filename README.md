@@ -26,8 +26,8 @@
 
 ## Deployment
 
-Hosted on **GitHub Pages**:  
-[https://your-username.github.io/ai-material-classifier/](https://your-username.github.io/ai-material-classifier/)
+Hosted on Netlify:  
+hackers-united.netlify.app
 
 ## License
 
